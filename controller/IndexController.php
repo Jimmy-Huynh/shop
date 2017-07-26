@@ -5,6 +5,7 @@ class IndexController extends BaseController{
         parent::__construct();
     }
     public function index(){
+        
         $this->view->render('home/index');
     }
 }

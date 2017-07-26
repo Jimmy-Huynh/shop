@@ -7,6 +7,7 @@ class BaseController {
     public $view;
     public $model;
     public $postData;
+    public $activeView = "Index";
 
     public function __construct() {
         $this->view = new BaseView();

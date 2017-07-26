@@ -11,5 +11,6 @@
         <!-- Bootstrap core CSS -->
         <link href="public/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="public/css/sticky-footer-navbar.css" rel="stylesheet">
+        <link href="public/css/home.css" rel="stylesheet">
     </head>
     <body>
