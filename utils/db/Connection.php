@@ -2,7 +2,7 @@
 
 class Connection extends PDO{
     public function __construct() {
-        $main=require('../../config/config.php');
+        $main=require('config/config.php');
         foreach ($main['db'] as $key=>$value){
             switch ($key){
                 case 'connectionString': $dsn=$value;
