@@ -2,15 +2,13 @@
     display: block;
     margin: auto;
 }
-body{
-    background-image: url('public/img/background.png');
-    background-color: lightblue;
-}
 .container{
     background-color: #fff !important;
 }
 .product {
     position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .image {

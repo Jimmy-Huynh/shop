@@ -37,3 +37,17 @@ body > .container {
 code {
   font-size: 80%;
 }
+
+.cart-number{
+    border-radius: 16px;
+    background-color: #62cc73;
+    position: absolute;
+    top: 32px;
+    left: 16px;
+    color: red;
+    font-weight: bold;
+    width: 24px;
+    text-align: center;
+    vertical-align: top;
+    line-height: 24px;
+}

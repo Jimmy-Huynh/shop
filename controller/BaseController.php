@@ -6,7 +6,6 @@ class BaseController {
 
     public $view;
     public $model;
-    public $postData;
     public $activeView = "Index";
 
     public function __construct() {
@@ -15,7 +14,12 @@ class BaseController {
 
     public function getData() {
         if (isset($_POST)) {
-            $this->postData = $_POST;
+            foreach ($_POST as $key =>$value){
+                $this->$key = $value;
+            }
+            return TRUE;
+        }else{
+            return FALSE;
         }
     }
 

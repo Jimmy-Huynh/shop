@@ -12,24 +12,24 @@
       <div class="item active">
         <img src="public/img/banner.jpg" alt="Los Angeles" style="width:100%;">
         <div class="carousel-caption">
-          <h3>Los Angeles</h3>
-          <p>LA is always so much fun!</p>
+          <h3>Banner 1</h3>
+          <p>Descript banner 1</p>
         </div>
       </div>
 
       <div class="item">
         <img src="public/img/banner.jpg" alt="Chicago" style="width:100%;">
         <div class="carousel-caption">
-          <h3>Chicago</h3>
-          <p>Thank you, Chicago!</p>
+          <h3>Banner 2</h3>
+          <p>Descript banner 2</p>
         </div>
       </div>
     
       <div class="item">
         <img src="public/img/banner.jpg" alt="New York" style="width:100%;">
         <div class="carousel-caption">
-          <h3>New York</h3>
-          <p>We love the Big Apple!</p>
+          <h3>Banner 3</h3>
+          <p>Descript banner 3</p>
         </div>
       </div>
   
@@ -45,37 +45,30 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-<div class="row" style="margin-top: 10px; height: 50px; background-color: #000; border-bottom: 1px #fff solid;">
+<!--<div class="row" style="margin-top: 10px; height: 50px; background-color: #000; border-bottom: 1px #fff solid;">
     <p style="text-align: center; font-weight: bold; line-height: 50px; vertical-align: middle; display: block; color: #fff; font-size: 30px;">New product</p>
-</div>
+</div>-->
 <div class="row" style="margin-top: 10px;">
 <?php
-for ($i = 1; $i <= 3; $i++) {
+$count = 0;
+foreach ($this->products as $key => $value){
+    if($count % 3 == 0){
+        echo '<div class="row">';
+    }
     ?>
-    <div class="row">
-        <div class="col-lg-4 product">
-            <img src="public/img/anh1.jpg" width="200" height="200" class="center-img"/>
+        <div class="col-lg-4 product" onclick="location.href='index/detail/<?php echo $key + 1; ?>';">
+            <img src="<?php echo $value['image']; ?>" width="200" height="200" class="center-img"/>
             <div class="overlay">
-                <div class="text">Product <?php echo $i; ?></div>
+                <div class="text"><button class="like btn btn-default" type="button"><span class="glyphicon glyphicon-eye-open"></span></button></div>
                 <!--<img src="public/img/cart.png" width="40" height="40" class="center-img"/>-->
             </div>
         </div>
-        <div class="col-lg-4 product">
-            <img src="public/img/anh1.jpg" width="200" height="200" class="center-img"/>
-            <div class="overlay">
-                <div class="text">Product <?php echo $i; ?></div>
-                <!--<img src="public/img/cart.png" width="40" height="40" class="center-img"/>-->
-            </div>
-        </div>
-        <div class="col-lg-4 product">
-            <img src="public/img/anh1.jpg" width="200" height="200" class="center-img"/>
-            <div class="overlay">
-                <div class="text">Product <?php echo $i; ?></div>
-                <!--<img src="public/img/cart.png" width="40" height="40" class="center-img"/>-->
-            </div>
-        </div>
-    </div>
     <?php
+    $count++;
+    if($count == 3 || $key == count($this->products)-1){
+        echo '</div>';
+        $count = 0;
+    }
 }
 ?>
     </div>

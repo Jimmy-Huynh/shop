@@ -9,8 +9,9 @@
         <meta name="author" content="">
         <link rel="icon" href="../../favicon.ico">
         <!-- Bootstrap core CSS -->
-        <link href="public/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="public/css/sticky-footer-navbar.css" rel="stylesheet">
-        <link href="public/css/home.css" rel="stylesheet">
+        <link href="<?php echo SITE_ROOT;?>public/plugin/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="<?php echo SITE_ROOT;?>public/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="<?php echo SITE_ROOT;?>public/css/sticky-footer-navbar.css" rel="stylesheet">
+        <link href="<?php echo SITE_ROOT;?>public/css/home.css" rel="stylesheet">
     </head>
     <body>
