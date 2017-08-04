@@ -1,99 +1,75 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     7/24/2017 10:50:53 PM                        */
+/* Created on:     8/4/2017 12:04:34 PM                         */
 /*==============================================================*/
 
 
-drop table if exists CART;
+drop table if exists BILLS;
 
-drop table if exists CATEGORY;
+drop table if exists CATEGORYS;
 
-drop table if exists PRICE;
+drop table if exists PRODUCTS;
 
-drop table if exists PRODUCT;
-
-drop table if exists UNIT;
-
-drop table if exists USER;
+drop table if exists USERS;
 
 /*==============================================================*/
-/* Table: CART                                                  */
+/* Table: BILLS                                                 */
 /*==============================================================*/
-create table CART
+create table BILLS
 (
-   PRODUCT_ID           int not null,
-   USER_ID              int not null,
+   ID                   int not null auto_increment,
+   USERID               int,
+   PRODUCTID            int,
    QUANTITY             int,
-   primary key (PRODUCT_ID, USER_ID)
+   CREATEDDATE          datetime,
+   primary key (ID)
 );
 
 /*==============================================================*/
-/* Table: CATEGORY                                              */
+/* Table: CATEGORYS                                             */
 /*==============================================================*/
-create table CATEGORY
+create table CATEGORYS
 (
-   CATEGORY_ID          int not null auto_increment,
-   CATEGORY_NAME        varchar(200) not null,
-   primary key (CATEGORY_ID)
+   ID                   int not null auto_increment,
+   NAME                 varchar(200),
+   primary key (ID)
 );
 
 /*==============================================================*/
-/* Table: PRICE                                                 */
+/* Table: PRODUCTS                                              */
 /*==============================================================*/
-create table PRICE
+create table PRODUCTS
 (
-   PRICE_ID             int not null auto_increment,
-   PRICE_UNIT           decimal,
-   primary key (PRICE_ID)
+   ID                   int not null auto_increment,
+   CATEGORYID           int,
+   NAME                 varchar(200),
+   IMAGE                varchar(200),
+   PRICE                decimal,
+   REVIEW               int,
+   DESCRIPTION          text,
+   VOTE                 text,
+   primary key (ID)
 );
 
 /*==============================================================*/
-/* Table: PRODUCT                                               */
+/* Table: USERS                                                 */
 /*==============================================================*/
-create table PRODUCT
+create table USERS
 (
-   PRODUCT_ID           int not null auto_increment,
-   UNIT_ID              int,
-   PRICE_ID             int,
-   CATEGORY_ID          int,
-   PRODUCT_NAME         varchar(200) not null,
-   PRODUCT_IMAGE        varchar(200),
-   primary key (PRODUCT_ID)
+   ID                   int not null auto_increment,
+   ACCOUNT              char(50),
+   PASSWORD             varchar(200),
+   NAME                 varchar(200),
+   ADDRESS              text,
+   primary key (ID)
 );
 
-/*==============================================================*/
-/* Table: UNIT                                                  */
-/*==============================================================*/
-create table UNIT
-(
-   UNIT_ID              int not null auto_increment,
-   UNIT_NAME            varchar(200),
-   primary key (UNIT_ID)
-);
+alter table BILLS add constraint FK_BILLPRODUCT foreign key (PRODUCTID)
+      references PRODUCTS (ID);
 
-/*==============================================================*/
-/* Table: USER                                                  */
-/*==============================================================*/
-create table USER
-(
-   USER_ID              int not null auto_increment,
-   USER_NAME            varchar(200),
-   USER_PASSWORD        varchar(200),
-   primary key (USER_ID)
-);
+alter table BILLS add constraint FK_USERBILL foreign key (USERID)
+      references USERS (ID);
 
-alter table CART add constraint FK_CART foreign key (PRODUCT_ID)
-      references PRODUCT (PRODUCT_ID) on delete restrict on update restrict;
-
-alter table CART add constraint FK_CART2 foreign key (USER_ID)
-      references USER (USER_ID) on delete restrict on update restrict;
-
-alter table PRODUCT add constraint FK_CATEGORY foreign key (CATEGORY_ID)
-      references CATEGORY (CATEGORY_ID) on delete restrict on update restrict;
-
-alter table PRODUCT add constraint FK_PRICE foreign key (PRICE_ID)
-      references PRICE (PRICE_ID) on delete restrict on update restrict;
-
-alter table PRODUCT add constraint FK_UNIT foreign key (UNIT_ID)
-      references UNIT (UNIT_ID) on delete restrict on update restrict;
+alter table PRODUCTS add constraint FK_PRODUCTCATEGORY foreign key (CATEGORYID)
+      references CATEGORYS (ID);
 
