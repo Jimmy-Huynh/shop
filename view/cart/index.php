@@ -1,4 +1,6 @@
 <link href="public/css/cart.css" rel="stylesheet">
+<script src="<?php echo SITE_ROOT?>public/js/jquery-3.2.1.min.js"></script>
+<script src="<?php echo SITE_ROOT?>public/js/cart.js"></script>
 <?php
 $total = 0;
 if ($this->products != NULL) {
@@ -35,7 +37,7 @@ if ($this->products != NULL) {
                 <td data-th="Subtotal" class="text-center"><?php echo $value['price']; ?></td>
                 <td class="actions" data-th="">
                     <button class="btn btn-info btn-sm"><i class="glyphicon glyphicon-refresh"></i></button>
-                    <button class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>								
+                    <button class="btn btn-danger btn-sm delete"><i class="glyphicon glyphicon-trash"></i></button>
                 </td>
             </tr>
             <?php

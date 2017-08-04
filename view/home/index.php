@@ -58,8 +58,11 @@ foreach ($this->products as $key => $value){
     ?>
         <div class="col-lg-4 product" onclick="location.href='index/detail/<?php echo $key + 1; ?>';">
             <img src="<?php echo $value['image']; ?>" width="200" height="200" class="center-img"/>
+            <p style="text-align: center; font-weight: bold; color: #0076ad;"><?php echo $value['name']; ?></p>
             <div class="overlay">
-                <div class="text"><button class="like btn btn-default" type="button"><span class="glyphicon glyphicon-eye-open"></span></button></div>
+                <div class="text">
+                    <button class="like btn btn-default" type="button">
+                        <span class="glyphicon glyphicon-eye-open"></span></button></div>
                 <!--<img src="public/img/cart.png" width="40" height="40" class="center-img"/>-->
             </div>
         </div>
@@ -73,7 +76,7 @@ foreach ($this->products as $key => $value){
 ?>
     </div>
 <div class="row">
-    <ul class="pagination" style="float: right;">
+    <ul class="pagination" style="float: left;">
         <li class="disabled"><a href="#">1</a></li>
         <li><a href="#">2</a></li>
         <li><a href="#">3</a></li>

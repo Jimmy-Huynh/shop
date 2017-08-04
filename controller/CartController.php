@@ -31,5 +31,10 @@ class CartController extends BaseController {
         header("Location: " . SITE_ROOT . 'index/detail/' . $id);
         die();
     }
+    
+    public function deleteCart($id){
+        unset($_SESSION['myCart'][$id]);
+        return "OK";
+    }
 
 }
