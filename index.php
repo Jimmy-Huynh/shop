@@ -9,8 +9,6 @@ $users = $fakeData['users'];
 
 //require BaseController
 require 'controller/BaseController.php';
-//require BaseModel
-require 'model/BaseModel.php';
 
 $url = isset($_GET['url']) ? $_GET['url'] : NULL;
 $url = rtrim($url, '/');

@@ -1,24 +1,44 @@
 <?php
 
-class IndexController extends BaseController{
+class IndexController extends BaseController {
+
     public function __construct() {
         parent::__construct();
     }
-    public function index(){
+
+    public function index() {
+        //get page number from url
+        $page = 1; //if null set $page =1
+        //if != null
+        if (isset($_GET['page'])) {
+            $page = $_GET['page'];
+        }
+        //reset productlist on screen
+        $products = array();
+        //set products to list
+        for ($i = ($page - 1) * 12; $i < 12 * $page; $i++) {
+            if (isset($GLOBALS['products'][$i])) {
+                array_push($products, $GLOBALS['products'][$i]);
+            }
+        }
         $data = array(
-            'products' => $GLOBALS['products']
+            'products' => $products, //products
+            'currentPage' => $page, //curent page
+            'pages' => (count($GLOBALS['products']) / 12 + 1)//total pages
         );
         $this->view->render('home/index', $data);
     }
-    public function detail($id){
+
+    public function detail($id) {
         $data = array();
-        foreach ($GLOBALS['products'] as $key =>$value){
-            if($value['id'] == $id){
+        foreach ($GLOBALS['products'] as $key => $value) {
+            if ($value['id'] == $id) {
                 $data = $value;
                 break;
             }
         }
-        
-        $this->view->render('home/detail',$data);
+
+        $this->view->render('home/detail', $data);
     }
+
 }

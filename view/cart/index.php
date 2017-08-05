@@ -38,6 +38,7 @@ if ($this->products != NULL) {
                 <td class="actions" data-th="">
                     <button class="btn btn-info btn-sm"><i class="glyphicon glyphicon-refresh"></i></button>
                     <button class="btn btn-danger btn-sm delete"><i class="glyphicon glyphicon-trash"></i></button>
+                    <input type="hidden" value="<?php echo $key;?>" class="deleteVal">
                 </td>
             </tr>
             <?php

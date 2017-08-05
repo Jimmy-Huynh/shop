@@ -32,9 +32,14 @@ class CartController extends BaseController {
         die();
     }
     
-    public function deleteCart($id){
-        unset($_SESSION['myCart'][$id]);
-        return "OK";
+    public function deleteCart(){
+        if (parent::getData()) {
+            unset($_SESSION['myCart'][$this->id]);
+            echo "OK";
+        }else{
+            
+        }
+        
     }
 
 }
