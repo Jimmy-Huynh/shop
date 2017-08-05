@@ -1,15 +1,15 @@
 $(document).ready(function () {
     $(document).on('click', '.delete', function () {
-//        alert($(this).parent().parent().index());
+        //get $key
         var val = $(this).parent().find("input").val();
+        // tr will be remove
         var tr = $(this).parent().closest('tr');
         $.ajax({
             type: "POST",
             url: 'http://localhost/shop/cart/deleteCart/',
             data:{id:val},
             success: function (data) {
-                alert(data);
-                if(data == "OK"){
+                if(data === "OK"){
                     tr.remove();
                 }
             }
