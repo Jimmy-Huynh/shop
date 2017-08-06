@@ -4,7 +4,9 @@ class AboutController extends BaseController{
         parent::__construct();
     }
     public function index(){
-        $this->activeView = "About";
-        $this->view->render('about/index');
+        $data =array(
+            'nav' => 'About'
+        );
+        $this->view->render('about/index', $data);
     }
 }

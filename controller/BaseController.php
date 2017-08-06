@@ -6,8 +6,6 @@ class BaseController {
 
     public $view;
     public $model;
-    public $activeView = "Index";
-
     public function __construct() {
         $this->view = new BaseView();
     }

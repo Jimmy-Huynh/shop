@@ -24,7 +24,8 @@ class IndexController extends BaseController {
         $data = array(
             'products' => $products, //products
             'currentPage' => $page, //curent page
-            'pages' => (count($GLOBALS['products']) / 12 + 1)//total pages
+            'pages' => (count($GLOBALS['products']) / 12 + 1), //total pages
+            'nav' => 'Index'
         );
         $this->view->render('home/index', $data);
     }
@@ -37,7 +38,7 @@ class IndexController extends BaseController {
                 break;
             }
         }
-
+        $data['nav'] = 'Index';
         $this->view->render('home/detail', $data);
     }
 

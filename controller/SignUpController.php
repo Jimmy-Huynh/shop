@@ -5,6 +5,9 @@ class SignUpController extends BaseController{
         parent::__construct();
     }
     public function index(){
-        $this->view->render('signup/index');
+        $data =array(
+            'nav' => 'SignUp'
+        );
+        $this->view->render('signup/index', $data);
     }
 }

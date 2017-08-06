@@ -5,7 +5,9 @@ class ContactController extends BaseController{
         parent::__construct();
     }
     public function index(){
-        $this->activeView = "Contact";
-        $this->view->render('contact/index');
+        $data =array(
+            'nav' => 'Contact'
+        );
+        $this->view->render('contact/index', $data);
     }
 }

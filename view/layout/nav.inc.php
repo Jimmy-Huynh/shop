@@ -11,12 +11,12 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="<?php echo SITE_ROOT; ?>index.php">Home</a></li>
-                <li><a href="<?php echo SITE_ROOT; ?>About">About</a></li>
-                <li><a href="<?php echo SITE_ROOT; ?>Contact">Contact</a></li>
+                <li <?php if($this->nav =='Index') echo 'class="active"'; ?>><a href="<?php echo SITE_ROOT; ?>index.php">Home</a></li>
+                <li <?php if($this->nav =='About') echo 'class="active"'; ?>><a href="<?php echo SITE_ROOT; ?>About">About</a></li>
+                <li <?php if($this->nav =='Contact') echo 'class="active"'; ?>><a href="<?php echo SITE_ROOT; ?>Contact">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right" style="margin-right: 16px;">
-                <li>
+                <li <?php if($this->nav =='Login') echo 'class="active"'; ?>>
                     <?php
                     if (isset($_SESSION["loined"])) {
                         ?>
@@ -30,8 +30,8 @@
                     ?>
 
                 </li>
-                <li><a href="<?php echo SITE_ROOT; ?>SignUp">Sign Up</a></li>
-                <li style="line-height:48px;">
+                <li <?php if($this->nav =='SignUp') echo 'class="active"'; ?>><a href="<?php echo SITE_ROOT; ?>SignUp">Sign Up</a></li>
+                <li style="line-height:48px;" <?php if($this->nav =='Index') echo 'class="active"'; ?>>
                     <button class="btn btn-info btn-sm" onclick="location.href = '<?php echo SITE_ROOT; ?>cart';">
                         <i class="glyphicon glyphicon-shopping-cart"><span></span></i>
                     </button>

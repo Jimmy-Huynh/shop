@@ -7,13 +7,16 @@ class CartController extends BaseController {
     }
 
     public function index() {
+
         if(isset($_SESSION['myCart'])){
             $data = array(
-              'products' => $_SESSION['myCart']
+              'products' => $_SESSION['myCart'],
+                'nav' => 'Cart'
             );
         }else{
             $data = array(
-                'products' => NULL
+                'products' => NULL,
+                'nav' => 'Cart'
             );
         }
         $this->view->render('cart/index', $data);

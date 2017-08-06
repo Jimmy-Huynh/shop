@@ -7,7 +7,10 @@ class LoginController extends BaseController {
     }
 
     public function index() {
-        $this->view->render('login/index');
+        $data =array(
+            'nav' => 'Login'
+        );
+        $this->view->render('login/index', $data);
     }
 
     public function Login() {
